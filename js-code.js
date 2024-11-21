@@ -16,16 +16,20 @@ function getComputerChoice() {
 console.log(getComputerChoice());
 
 function getHumanChoice() {
-    let choice = prompt("Rock, Paper or Scissors?")
-    if (choice.toLowerCase() === "rock") {
-        return console.log("Rock")
+    let choice
+    do {
+        choice = prompt("Rock, Paper or Scissors?")
+        choice = choice.toLowerCase()
+        if (choice === "rock") {
+            return "Rock";
     }
-    else if (choice.toLowerCase() === "paper") {
-        return console.log("Paper")
+        else if (choice === "paper") {
+            return "Paper";
     }
-    else if (choice.toLowerCase() === "scissors") {
-        return console.log ("Scissors")
+        else if (choice === "scissors") {
+            return "Scissors";
     }
+    } while (choice != "rock" && choice != "paper" && choice != "scissors")
 }
 
-getHumanChoice()
+console.log(getHumanChoice())

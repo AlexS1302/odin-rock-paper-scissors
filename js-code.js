@@ -15,26 +15,25 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    let choice
-    do {
-        choice = prompt("Rock, Paper or Scissors?")
-        choice = choice.toLowerCase()
-        if (choice === "rock") {
-            console.log("Human: Rock");
-            return "Rock";
-            
-    }
-        else if (choice === "paper") {
-            console.log("Human: Paper");
-            return "Paper";
-    }
-        else if (choice === "scissors") {
-            console.log("Human: Scissors");
-            return "Scissors";
-    }
-    } while (choice != "rock" && choice != "paper" && choice != "scissors")
-}
+// function getHumanChoice() {
+//     let choice
+//     do {
+//         choice = prompt("Rock, Paper or Scissors?")
+//         choice = choice.toLowerCase()
+//         if (choice === "rock") {
+//             console.log("Human: Rock");
+//             return "Rock";
+//     }
+//         else if (choice === "paper") {
+//             console.log("Human: Paper");
+//             return "Paper";
+//     }
+//         else if (choice === "scissors") {
+//             console.log("Human: Scissors");
+//             return "Scissors";
+//     }
+//     } while (choice != "rock" && choice != "paper" && choice != "scissors")
+// }
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice == computerChoice) {
@@ -85,22 +84,46 @@ function playGame() {
     let humanScore = 0;
     let computerScore = 0;
 
-    for (let i = 0; i < 5; i++) {
-        const humanChoice = getHumanChoice();
-        const computerChoice = getComputerChoice();
-        const result = playRound(humanChoice, computerChoice);
+    // for (let i = 0; i < 5; i++) {
+    //     const humanChoice = getHumanChoice();
+    //     const computerChoice = getComputerChoice();
+    //     const result = playRound(humanChoice, computerChoice);
 
-        if (result === "human") {
-            humanScore++;
-        } else if (result === "computer") {
-            computerScore++;
-        }
-        rounds++;
+    //     if (result === "human") {
+    //         humanScore++;
+    //     } else if (result === "computer") {
+    //         computerScore++;
+    //     }
+    //     rounds++;
 
-    }
+    // }
     
     console.log(`Final Score: Human ${humanScore}, Computer ${computerScore}`);
 
 }
 
-playGame();
+//buttons
+
+const rockButton = document.querySelector("#rockBtn")
+rockButton.addEventListener("click", () => {
+    const humanChoice = "Rock";
+    const computerChoice = getComputerChoice();
+    const result = playRound(humanChoice, computerChoice);
+    console.log(result);
+});
+
+const paperButton = document.querySelector("#paperBtn")
+paperButton.addEventListener("click", () => {
+    const humanChoice = "Paper";
+    const computerChoice = getComputerChoice();
+    const result = playRound(humanChoice, computerChoice);
+    console.log(result);
+});
+
+const scissorsButton = document.querySelector("#scissorsBtn")
+scissorsButton.addEventListener("click", () => {
+    const humanChoice = "Scissors";
+    const computerChoice = getComputerChoice();
+    const result = playRound(humanChoice, computerChoice);
+    console.log(result);
+});
